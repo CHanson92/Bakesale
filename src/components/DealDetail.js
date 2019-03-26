@@ -53,9 +53,9 @@ class DealDetail extends Component {
 const styles = StyleSheet.create({
     container: {
         backgroundColor:'#DEE2EC',
-        margin: 10,
         borderColor: 'grey',
-        borderWidth: 1,
+        borderTopWidth: 1,
+        borderBottomWidth: 1,
     },
     backLink: {
         margin: 5,

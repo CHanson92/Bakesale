@@ -1,19 +1,27 @@
-import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, Animated, View } from 'react-native';
 import ajax from '../ajax';
 import DealList from './DealList';
 import DealDetail from './DealDetail';
 import SearchBar from './SearchBar';
 
 class App extends Component {
+  titleXPos = new Animated.Value(0);
   state = {
     deals: [],
     dealsFormSearch: [],
     currentDealId: null,
   };
+  animateTitle = (direction = 1) => {
+    Animated.spring(
+      this.titleXPos,
+      { toValue: direction * 100 }
+    ).start(() => { this.animateTitle(-1 * direction); });
+  }
   async componentDidMount() {
-    const deals = await ajax.fetchInitialDeals();
-    this.setState({ deals })
+    this.animateTitle();
+    // const deals = await ajax.fetchInitialDeals();
+    // this.setState({ deals })
   }
   searchDeals = async (searchTerm) => {
     let dealsFormSearch = [];
@@ -61,9 +69,9 @@ class App extends Component {
       );
     }
     return (
-      <View style={styles.container}>
+      <Animated.View style={[{ left: this.titleXPos }, styles.container]}>
         <Text style={styles.welcome}>Bakesale</Text>
-      </View>
+      </Animated.View>
     );
   }
 }
