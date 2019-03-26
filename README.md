@@ -10,6 +10,7 @@ The idea behind this mini project was to design a offers app where the app would
 
 * 17/03/2018 - Posted to GitHub.
 * 25/03/2018 - Added searchbar functionality.
+* 26/03/2018 - Added animation to loading screen.
 
 ## Instructions
 
