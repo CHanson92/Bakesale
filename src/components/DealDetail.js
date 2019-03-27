@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, Text, TouchableOpacity, PanResponder, Animated, Image, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, Button, PanResponder, Animated, Image, View, Dimensions, Linking } from 'react-native';
 import { priceDisplay } from '../util';
 import ajax from '../ajax';
-import { throwStatement } from '@babel/types';
 
 class DealDetail extends Component {
     imageXPos = new Animated.Value(0);
@@ -61,6 +60,9 @@ class DealDetail extends Component {
             deal: fullDeal,
         });
     }
+    openDealUrl = () => {
+        Linking.openURL(this.state.deal.url);
+    };
     render() {
         const { deal } = this.state;
         return (
@@ -89,6 +91,7 @@ class DealDetail extends Component {
                 </View>
                 <View style={styles.descriptioncontainer}>
                     <Text style={styles.description}>{deal.description}</Text>
+                    <Button color="#1AC8DB" title="Buy this deal!" onPress={this.openDealUrl} />
                 </View>
             </View>
         );

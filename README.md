@@ -11,7 +11,7 @@ The idea behind this mini project was to design a offers app where the app would
 * 17/03/2018 - Posted to GitHub.
 * 25/03/2018 - Added searchbar functionality.
 * 26/03/2018 - Added animation to loading screen.
-* 27/03/2018 - Added swiping animation to images in DealDetail.
+* 27/03/2018 - Added swiping animation to images in DealDetail & a  button that takes you to a checkout page.
 
 ## Instructions
 
