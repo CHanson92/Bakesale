@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, Text, TouchableOpacity, Button, PanResponder, Animated, Image, View, Dimensions, Linking } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, ScrollView, Button, PanResponder, Animated, Image, View, Dimensions, Linking } from 'react-native';
 import { priceDisplay } from '../util';
 import ajax from '../ajax';
 
@@ -66,7 +66,7 @@ class DealDetail extends Component {
     render() {
         const { deal } = this.state;
         return (
-            <View style={styles.container}
+            <ScrollView style={styles.container}
             >
                 <TouchableOpacity onPress={this.props.onBack}>
                     <Text style={styles.backLink}>Back</Text>
@@ -93,7 +93,7 @@ class DealDetail extends Component {
                     <Text style={styles.description}>{deal.description}</Text>
                     <Button color="#1AC8DB" title="Buy this deal!" onPress={this.openDealUrl} />
                 </View>
-            </View>
+            </ScrollView>
         );
     }
 }
@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
         borderColor: 'grey',
         borderTopWidth: 1,
         borderBottomWidth: 1,
+        marginBottom: 20,
     },
     backLink: {
         margin: 5,
@@ -161,6 +162,7 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 16,
         color: '#0292B7',
+        marginBottom: 10,
     },
 });
 
